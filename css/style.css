@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+
+.icon-name {
+  color: #000;
+}
+/*  Opensans
+--------------- */
+.card-body {
+  padding: 0;
+}
+.card {
+  background: #ffffff;
+  margin: 7.5px 0;
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.card-subtitle {
+  font-size: 12px;
+  margin: 10px 0;
+}
+.card-title {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+}
+.card-title h4 {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+}
+.card-title p {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 12px;
+}
+.card-option {
+  position: relative;
+}
+.card-option-dropdown {
+  display: none;
+  left: auto;
+  right: 0;
+}
+.card-option-dropdown li {
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+.card-option-dropdown li a {
+  line-height: 25px;
+  font-size: 12px;
+}
+.card-option-dropdown li a i {
+  margin-right: 10px;
+}
+
+/*    Header
+---------------*/
+.logo {
+  background: #343957;
+  display: inline-block;
+  padding: 15px 0;
+  text-align: center;
+  width: 250px;
+  transition: width 300ms ease-in-out;
+}
+.logo span {
+  color: rgba(160, 180, 200, 0.85);
+  font-size: 20px;
+  font-weight: 700;
+}
+.sidebar-hide .logo {
+  width: 0;
+}
+.sidebar-hide .logo span {
+  display: none;
+}
+
+
+/*    Search box
+----------------------*/
+.main .page-header {
+  min-height: 50px;
+  margin: 15px 0 5px;
+  padding: 0 15px;
+  border-bottom: 0;
+  border-radius: 3px;
+}
+.main .page-header h1 {
+  font-size: 18px;
+  padding: 14px 0;
+  margin: 0;
+}
+.main .page-header h1 span {
+  font-size: 14px;
+}
+.main .page-header .breadcrumb {
+  margin: 0;
+  padding: 15px;
+  background: transparent;
+  float: right;
+}
+.main .page-header .breadcrumb li.active {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+.main .page-header .breadcrumb li a {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  display: block;
+}
+.dropdown-task .progress {
+  height: 5px;
+  margin-bottom: 0;
+  margin-top: 20px;
+  box-shadow: none;
+}
+.dropdown-task .progress-bar {
+  box-shadow: none;
+}
+/*  Responsive*/
+@media (min-width: 320px) and (max-width: 679px) {
+  .sidebar {
+    top: 50px;
+  }
+}
+
+
+@media print {
+  .header,
+  .sidebar,
+  .chat-sidebar,
+  .control,
+  .control-bar {
+    display: none !important;
+  }
+  [contenteditable]:hover,
+  [contenteditable]:focus {
+    outline: none;
+  }
+}
+
+.title {
+  float: right;
+}
+.title h4 {
+  color: #373757;
+  text-align: right;
+}
+.title p {
+  text-align: right;
+  font-size: 12px;
+}
+.tabletitle {
+  padding: 5px;
+  background: #e7e7e7;
+}
+.table-item {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .card {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+
+thead tr th {
+  color: #373757;
+  font-weight: 500;
+}
+thead tr th:last-child {
+  text-align: right;
+}
+tbody tr th {
+  color: #373757;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+}
+tbody tr td {
+  font-family: 'Roboto', sans-serif;
+  color: #868e96;
+}
+tbody tr td:last-child {
+  text-align: right;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  line-height: 32px;
+  vertical-align: top;
+}
+.table > thead > tr > th {
+  border-bottom: 1px solid #e7e7e7;
+  font-weight: 600;
+  border-top: 0;
+}
+.table {
+  margin-bottom: 0;
+}
+
+
+.table td,
+.table th {
+  padding: 0.55rem;
+}
+.table .round-img img {
+  width: 38px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: rgba(88, 115, 254, 0.04);
+  color: #868e96;
+  font-size: 14px;
+}
+a,
+button {
+  outline: none!important;
+  text-decoration: none!important;
+  color: #868e96;
+  transition: all 0.2s ease 0s;
+}
+a.active,
+button.active,
+a:focus,
+button:focus,
+a:hover,
+button:hover {
+  color: #252525;
+  outline: none!important;
+  text-decoration: none!important;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  color: #868e96;
+}
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6.h1 {
+  color: #373757;
+}
+
+.box-shadow {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.cursor{
+  cursor: pointer;
+}
+
+/*    Color Mixins
+-------------------*/
+.color-primary,
+.text-primary {
+  color: #5873fe;
+}
+.color-success,
+.text-success {
+  color: #28a745;
+}
+.color-info,
+.text-info {
+  color: #03a9f4;
+}
+.color-danger,
+.text-danger {
+  color: #dc3545;
+}
+.color-warning,
+.text-warning {
+  color: #e7b63a;
+}
+.color-pink,
+.text-pink {
+  color: #e6a1f2;
+}
+.color-dark,
+.text-dark {
+  color: #545454;
+}
+.color-grey,
+.text-grey {
+  color: #ddd;
+}
+/*    Mixins
+--------------------------*/
+.button-add{
+  background-color: #697aff;
+  width: 100px;
+  height: 30px;
+  border-radius: 12px;
+  color: #fff;
+  border: unset !important;
+  cursor: pointer;
+  &:hover{
+    background-color: #344bff;
+    color: #fff;
+  }
+}
+
+* {box-sizing: border-box}
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+#signupbtn,.updatebtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border: unset !important;
+  &:hover{
+    color: #fff
+  }
+}
+
+#signupbtn, .updatebtn:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+  color: #fff;
+  border: unset !important;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+    background-color: #d12215;
+
+  }
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, #signupbtn, .updatebtn {
+  float: left;
+  width: 50%;
+  border: unset !important;
+
+}
+#signupbtn, .updatebtn {
+    float: right;
+    width: 50%;
+  }
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal, .modal-update {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #8989898f;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, #signupbtn {
+    width: 100%;
+  }
+}
+
+#status{
+  border-radius: 8px;
+}
