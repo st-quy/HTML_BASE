@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Styles -->
     <link href="css/lib/font-awesome.min.css" rel="stylesheet" />
     <link href="css/lib/themify-icons.css" rel="stylesheet" />
     <link href="css/lib/menubar/sidebar.css" rel="stylesheet" />
     <link href="css/lib/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/lib/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="css/products.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-
-    <link href="css/style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -37,7 +37,9 @@
               <a href="products.html"><i class="ti-package"></i> Product</a>
             </li>
             <li>
-              <a href="profile.html"><i class="ti-map-alt"></i> Tour</a>
+              <a href="login.html" onclick="handleLogout()"
+                ><i class="ti-map-alt"></i>Logout</a
+              >
             </li>
           </ul>
         </div>
@@ -64,7 +66,7 @@
                     <li class="breadcrumb-item">
                       <a href="index.html">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active">User</li>
+                    <li class="breadcrumb-item active">Products</li>
                   </ol>
                 </div>
               </div>
@@ -79,11 +81,11 @@
                   class="button-add"
                   onclick="document.getElementById('id01').style.display='block'"
                 >
-                  Add User
+                  Add Product
                 </button>
                 <div class="card">
                   <div class="card-title">
-                    <h4>User Manager</h4>
+                    <h4>Products Manager</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -93,8 +95,9 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Quality</th>
-                            <th>Booked</th>
+                            <th>Stock</th>
+                            <th>Sold</th>
+                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -121,20 +124,22 @@
       >
       <form class="modal-content">
         <div class="container">
-          <h1>Add User</h1>
-          <p>Please fill in this form to add user.</p>
+          <h1>Add Product</h1>
+          <p>Please fill in this form to add product.</p>
           <hr />
           <label for="name"><b>Name</b></label>
           <input type="text" placeholder="Enter Name" name="name" required />
 
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
+          <label for="description"><b>Description</b></label>
+          <input
+            type="text"
+            placeholder="Enter Description"
+            name="description"
+            required
+          />
 
-          <label for="phone"><b>SĐT</b></label>
-          <input type="text" placeholder="Enter Phone" name="phone" required />
-
-          <label for="role"><b>Role</b></label>
-          <input type="text" placeholder="Enter Role" name="role" required />
+          <label for="stock"><b>Stock</b></label>
+          <input type="text" placeholder="Enter Stock" name="stock" required />
 
           <div class="clearfix">
             <button
@@ -166,20 +171,35 @@
       >
       <form class="modal-content">
         <div class="container">
-          <h1>Update User</h1>
-          <p>Please fill in this form to update user.</p>
+          <h1>Update Product</h1>
+          <p>Please fill in this form to update product .</p>
           <hr />
           <label for="name-update"><b>Name</b></label>
-          <input name="name-update" id="name-update" type="text" placeholder="Enter Name" required />
+          <input
+            name="name-update"
+            id="name-update"
+            type="text"
+            placeholder="Enter Name"
+            required
+          />
 
-          <label for="email-update"><b>Email</b></label>
-          <input name="email-update" id="email-update" type="text" placeholder="Enter Email"required />
+          <label for="description-update"><b>Description</b></label>
+          <input
+            name="description-update"
+            id="description-update"
+            type="text"
+            placeholder="Enter description"
+            required
+          />
 
-          <label for="phone-update"><b>SĐT</b></label>
-          <input name="phone-update" id="phone-update" type="text" placeholder="Enter Phone"required />
-
-          <label for="role-update"><b>Role</b></label>
-          <input name="role-update" id="role-update" type="text" placeholder="Enter Role" required />
+          <label for="stock-update"><b>Stock</b></label>
+          <input
+            name="stock-update"
+            id="stock-update"
+            type="text"
+            placeholder="Enter Stock"
+            required
+          />
 
           <label for="status"><b>Status</b></label>
           <select name="status" id="status">
@@ -207,8 +227,37 @@
       </form>
     </div>
 
+    <div id="id03" class="modal-delete">
+      <span
+        onclick="document.getElementById('id03').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >X</span
+      >
+      <form class="modal-content" action="/action_page.php">
+        <div class="container">
+          <h1>Delete Product</h1>
+          <p>Are you sure you want to delete product?</p>
 
-    <script src="./js/index.js"></script>
-
+          <div class="clearfix">
+            <button
+              type="button"
+              class="cancelbtn"
+              onclick="document.getElementById('id03').style.display='none'"
+            >
+              Cancel
+            </button>
+            <button type="button" class="deletebtn" onclick="handleDelete()">
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/toastr/toastr.min.js"></script>
+    <script src="./js/toastr/toastr.init.js"></script>
+    <script src="./js/product/index.js"></script>
+    <script src="./js/login/index.js"></script>
   </body>
 </html>

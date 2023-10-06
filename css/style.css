@@ -339,7 +339,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Set a style for all buttons */
-#signupbtn,.updatebtn {
+#signupbtn,.updatebtn, .deletebtn {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -353,7 +353,7 @@ input[type=text]:focus, input[type=password]:focus {
   }
 }
 
-#signupbtn, .updatebtn:hover {
+#signupbtn, .updatebtn, .deletebtn:hover {
   opacity:1;
 }
 
@@ -378,7 +378,7 @@ input[type=text]:focus, input[type=password]:focus {
   border: unset !important;
 
 }
-#signupbtn, .updatebtn {
+#signupbtn, .updatebtn, .deletebtn {
     float: right;
     width: 50%;
   }
@@ -389,7 +389,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* The Modal (background) */
-.modal, .modal-update {
+.modal, .modal-update, .modal-delete {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 999; /* Sit on top */

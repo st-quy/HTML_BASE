@@ -1,6 +1,11 @@
+var isLogin = JSON.parse(localStorage.getItem("isLogin"));
+if (!isLogin && isLogin === false) {
+  location.href = `${location.origin}/login.html`;
+}
+
 let tbody = document.getElementById("tbody");
 
-fetch("https://tour-booking.glitch.me/user")
+fetch("https://touring.glitch.me/user")
   .then((res) => res.json())
   .then((json) => {
     json.map((data) => {
@@ -9,17 +14,21 @@ fetch("https://tour-booking.glitch.me/user")
   });
 var modal = document.getElementById("id01");
 var modalUpdate = document.getElementById("id02");
+var modalDelete = document.getElementById("id03");
+
 var span = document.getElementsByClassName("close")[0];
 
 span.onclick = function () {
   modal.style.display = "none";
   modalUpdate.style.display = "none";
+  modalDelete.style.display = "none";
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
     modalUpdate.style.display = "none";
+    modalDelete.style.display = "none";
   }
 };
 
@@ -27,6 +36,7 @@ window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
     modalUpdate.style.display = "none";
+    modalDelete.style.display = "none";
   }
 };
 
@@ -42,37 +52,67 @@ function td_fun({ id, name, email, phone, status, role }) {
   <td class="color-primary">${status}</td>
   <td>
     <span class="color-dark ti-pencil-alt cursor" id="updateBtn" onclick="handleGetDetail(${id})"></span>
-    <span class="ti-trash color-danger cursor" id="deleteBtn" onclick="handleDelete(${id})"></span>
+    <span class="ti-trash color-danger cursor" id="deleteBtn" onclick="handleOpenModalDelete(${id})"></span>
   </td>
     `;
   return td;
 }
+var idUserDelete = "";
+async function handleOpenModalDelete(id) {
+  idUserDelete = id;
+  modalDelete.style.display = "block";
+}
 
-async function handleDelete(id) {
+async function handleDelete() {
   event.preventDefault();
-
   await axios
-    .delete(`https://tour-booking.glitch.me/user/${id}`)
+    .delete(`https://touring.glitch.me/user/${idUserDelete}`)
     .then((response) => {
-      document.getElementById(`child-${id}`).remove();
+      document.getElementById(`child-${idUserDelete}`).remove();
+      modalDelete.style.display = "none";
+      idUserDelete = "";
+      toastr.success("Delete user successfully", "Message", {
+        timeOut: 5000,
+        closeButton: true,
+        debug: false,
+        newestOnTop: true,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        preventDuplicates: true,
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+        tapToDismiss: false,
+      });
     });
 }
-var idUser = ''
+var idUserUpdate = "";
 
 async function handleGetDetail(id) {
   event.preventDefault();
-  await axios
-    .get(`https://tour-booking.glitch.me/user/${id}`)
-    .then((response) => {
-      idUser = response.data.id;
-      document.getElementById('name-update').value = response.data.name;
-      document.getElementById('email-update').value = response.data.email;
-      document.getElementById('phone-update').value = response.data.phone;
-      document.getElementById('role-update').value = response.data.role;
-      document.getElementById('status').value = response.data.status;
-      var modal = document.getElementById("id02");
-      modal.style.display = "block";
-    });
+  await axios.get(`https://touring.glitch.me/user/${id}`).then((response) => {
+    idUserUpdate = response.data.id;
+    document.getElementById("name-update").value = response.data.name
+      ? response.data.name
+      : "";
+    document.getElementById("email-update").value = response.data.email
+      ? response.data.email
+      : "";
+    document.getElementById("phone-update").value = response.data.phone
+      ? response.data.phone
+      : "";
+    document.getElementById("role-update").value = response.data.role
+      ? response.data.role
+      : "";
+    document.getElementById("status").value = response.data.status;
+    var modal = document.getElementById("id02");
+    modal.style.display = "block";
+  });
 }
 
 async function handleSubmit(event) {
@@ -82,7 +122,7 @@ async function handleSubmit(event) {
   var phone = document.querySelector('input[name="phone"]').value;
   var role = document.querySelector('input[name="role"]').value;
   await axios
-    .post("https://tour-booking.glitch.me/user", {
+    .post("https://touring.glitch.me/user", {
       name: name,
       email: email,
       phone: phone,
@@ -93,6 +133,24 @@ async function handleSubmit(event) {
       var modal = document.getElementById("id01");
       modal.style.display = "none";
       tbody.append(td_fun(response.data));
+      toastr.success("Add user successfully", "Message", {
+        timeOut: 5000,
+        closeButton: true,
+        debug: false,
+        newestOnTop: true,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        preventDuplicates: true,
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+        tapToDismiss: false,
+      });
     });
   event.target.reset();
 }
@@ -104,9 +162,9 @@ async function handleUpdate(event) {
   var phone = document.querySelector('input[name="phone-update"]').value;
   var role = document.querySelector('input[name="role-update"]').value;
   var status = document.querySelector('select[name="status"]').value;
-  
+
   await axios
-    .put(`https://tour-booking.glitch.me/user/${idUser}`, {
+    .put(`https://touring.glitch.me/user/${idUserUpdate}`, {
       name: name,
       email: email,
       phone: phone,
@@ -114,9 +172,28 @@ async function handleUpdate(event) {
       role: role,
     })
     .then((response) => {
-      location.reload()
       var modal = document.getElementById("id02");
-      modal.style.display = "none";
+      idUserUpdate = "";
+      toastr.success("Update user successfully", "Message", {
+        timeOut: 2000,
+        closeButton: true,
+        debug: false,
+        newestOnTop: true,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        preventDuplicates: true,
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+        tapToDismiss: false,
+      });
+      setTimeout(function () {
+        location.reload();
+      }, 1000);
     });
 }
-

@@ -13,6 +13,7 @@
     <link href="css/lib/menubar/sidebar.css" rel="stylesheet" />
     <link href="css/lib/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <link href="css/lib/toastr/toastr.min.css" rel="stylesheet" />
 
     <link href="css/style.css" rel="stylesheet" />
   </head>
@@ -37,7 +38,9 @@
               <a href="products.html"><i class="ti-package"></i> Product</a>
             </li>
             <li>
-              <a href="profile.html"><i class="ti-map-alt"></i> Tour</a>
+              <a href="login.html" onclick="handleLogout()"
+                ><i class="ti-map-alt"></i>Logout</a
+              >
             </li>
           </ul>
         </div>
@@ -171,16 +174,40 @@
           <p>Please fill in this form to update user.</p>
           <hr />
           <label for="name-update"><b>Name</b></label>
-          <input name="name-update" id="name-update" type="text" placeholder="Enter Name" required />
+          <input
+            name="name-update"
+            id="name-update"
+            type="text"
+            placeholder="Enter Name"
+            required
+          />
 
           <label for="email-update"><b>Email</b></label>
-          <input name="email-update" id="email-update" type="text" placeholder="Enter Email"required />
+          <input
+            name="email-update"
+            id="email-update"
+            type="text"
+            placeholder="Enter Email"
+            required
+          />
 
           <label for="phone-update"><b>SĐT</b></label>
-          <input name="phone-update" id="phone-update" type="text" placeholder="Enter Phone"required />
+          <input
+            name="phone-update"
+            id="phone-update"
+            type="text"
+            placeholder="Enter Phone"
+            required
+          />
 
           <label for="role-update"><b>Role</b></label>
-          <input name="role-update" id="role-update" type="text" placeholder="Enter Role" required />
+          <input
+            name="role-update"
+            id="role-update"
+            type="text"
+            placeholder="Enter Role"
+            required
+          />
 
           <label for="status"><b>Status</b></label>
           <select name="status" id="status">
@@ -208,9 +235,34 @@
       </form>
     </div>
 
-    <!-- bootstrap -->
-    <script src="./js/index.js"></script>
+    <div id="id03" class="modal-delete">
+      <span
+        onclick="document.getElementById('id03').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >X</span
+      >
+      <form class="modal-content" action="/action_page.php">
+        <div class="container">
+          <h1>Delete Account</h1>
+          <p>Are you sure you want to delete your account?</p>
+
+          <div class="clearfix">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="button" class="deletebtn" onclick="handleDelete()">
+              Delete
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <!-- scripit init-->
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/login/index.js"></script>
+    <script src="./js/toastr/toastr.min.js"></script>
+    <script src="./js/toastr/toastr.init.js"></script>
   </body>
 </html>

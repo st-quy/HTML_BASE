@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Login</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/login/login.css" rel="stylesheet" />
+    <link href="css/lib/toastr/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <!--Stylesheet-->
+  </head>
+  <body>
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <form>
+      <h3>Login</h3>
+
+      <label for="email">Email</label>
+      <input name="email" type="text" placeholder="Enter Email" id="email" />
+
+      <label for="password">Password</label>
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        id="password"
+      />
+
+      <button type="button" class="login" onclick="handleSubmit()">
+        Log In
+      </button>
+      <div class="social">
+        <div class="go"><i class="fab fa-google"></i> Google</div>
+        <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+      </div>
+
+      <div>
+        <span class="signup-content"
+          >Do you have an account with us?
+          <a href="signup.html">Sign Up</a>
+        </span>
+      </div>
+    </form>
+  </body>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/toastr/toastr.min.js"></script>
+  <script src="./js/toastr/toastr.init.js"></script>
+  <script src="./js/login/index.js"></script>
+</html>
