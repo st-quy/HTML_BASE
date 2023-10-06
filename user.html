@@ -5,42 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Focus Admin: Table</title>
-
-    <!-- ================= Favicon ================== -->
-    <!-- Standard -->
-    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff" />
-    <!-- Retina iPad Touch Icon-->
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="http://placehold.it/144.png/000/fff"
-    />
-    <!-- Retina iPhone Touch Icon-->
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="http://placehold.it/114.png/000/fff"
-    />
-    <!-- Standard iPad Touch Icon-->
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="http://placehold.it/72.png/000/fff"
-    />
-    <!-- Standard iPhone Touch Icon-->
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="http://placehold.it/57.png/000/fff"
-    />
+    <title>Admin Dashboard</title>
 
     <!-- Styles -->
     <link href="css/lib/font-awesome.min.css" rel="stylesheet" />
     <link href="css/lib/themify-icons.css" rel="stylesheet" />
     <link href="css/lib/menubar/sidebar.css" rel="stylesheet" />
     <link href="css/lib/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/lib/helper.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
 
     <link href="css/style.css" rel="stylesheet" />
@@ -60,13 +31,13 @@
             </div>
             <li class="label">Main</li>
             <li>
-              <a href="app-user.html"><i class="ti-user"></i> User </a>
+              <a href="user.html"><i class="ti-user"></i> User </a>
             </li>
             <li>
-              <a href="app-email.html"><i class="ti-package"></i> Product</a>
+              <a href="products.html"><i class="ti-package"></i> Product</a>
             </li>
             <li>
-              <a href="app-profile.html"><i class="ti-map-alt"></i> Tour</a>
+              <a href="profile.html"><i class="ti-map-alt"></i> Tour</a>
             </li>
           </ul>
         </div>
@@ -200,16 +171,16 @@
           <p>Please fill in this form to update user.</p>
           <hr />
           <label for="name-update"><b>Name</b></label>
-          <input type="text" placeholder="Enter Name" name="name" required />
+          <input name="name-update" id="name-update" type="text" placeholder="Enter Name" required />
 
           <label for="email-update"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required />
+          <input name="email-update" id="email-update" type="text" placeholder="Enter Email"required />
 
           <label for="phone-update"><b>SĐT</b></label>
-          <input type="text" placeholder="Enter Phone" name="phone" required />
+          <input name="phone-update" id="phone-update" type="text" placeholder="Enter Phone"required />
 
           <label for="role-update"><b>Role</b></label>
-          <input type="text" placeholder="Enter Role" name="role" required />
+          <input name="role-update" id="role-update" type="text" placeholder="Enter Role" required />
 
           <label for="status"><b>Status</b></label>
           <select name="status" id="status">
@@ -218,6 +189,7 @@
           </select>
           <div class="clearfix">
             <button
+              type="button"
               onclick="document.getElementById('id02').style.display='none'"
               class="cancelbtn"
             >
@@ -227,7 +199,7 @@
               type="submit"
               class="updatebtn"
               id="updatebtn"
-              onclick="handleSubmit(event)"
+              onclick="handleUpdate(event)"
             >
               Update
             </button>
@@ -236,17 +208,7 @@
       </form>
     </div>
 
-    <!-- jquery vendor -->
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="js/lib/menubar/sidebar.js"></script>
-    <script src="js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-
     <!-- bootstrap -->
-    <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
     <script src="./js/index.js"></script>
 
     <!-- scripit init-->

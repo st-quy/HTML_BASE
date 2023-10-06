@@ -41,7 +41,7 @@ function td_fun({ id, name, email, phone, status, role }) {
   <td>${role}</td>
   <td class="color-primary">${status}</td>
   <td>
-    <span class="color-dark ti-pencil-alt cursor" id="updateBtn" onclick="handleUpdate(${id})"></span>
+    <span class="color-dark ti-pencil-alt cursor" id="updateBtn" onclick="handleGetDetail(${id})"></span>
     <span class="ti-trash color-danger cursor" id="deleteBtn" onclick="handleDelete(${id})"></span>
   </td>
     `;
@@ -57,13 +57,19 @@ async function handleDelete(id) {
       document.getElementById(`child-${id}`).remove();
     });
 }
+var idUser = ''
 
-async function handleUpdate(id) {
+async function handleGetDetail(id) {
   event.preventDefault();
-
   await axios
     .get(`https://tour-booking.glitch.me/user/${id}`)
     .then((response) => {
+      idUser = response.data.id;
+      document.getElementById('name-update').value = response.data.name;
+      document.getElementById('email-update').value = response.data.email;
+      document.getElementById('phone-update').value = response.data.phone;
+      document.getElementById('role-update').value = response.data.role;
+      document.getElementById('status').value = response.data.status;
       var modal = document.getElementById("id02");
       modal.style.display = "block";
     });
@@ -90,3 +96,27 @@ async function handleSubmit(event) {
     });
   event.target.reset();
 }
+
+async function handleUpdate(event) {
+  event.preventDefault();
+  var name = document.querySelector('input[name="name-update"]').value;
+  var email = document.querySelector('input[name="email-update"]').value;
+  var phone = document.querySelector('input[name="phone-update"]').value;
+  var role = document.querySelector('input[name="role-update"]').value;
+  var status = document.querySelector('select[name="status"]').value;
+  
+  await axios
+    .put(`https://tour-booking.glitch.me/user/${idUser}`, {
+      name: name,
+      email: email,
+      phone: phone,
+      status: status,
+      role: role,
+    })
+    .then((response) => {
+      location.reload()
+      var modal = document.getElementById("id02");
+      modal.style.display = "none";
+    });
+}
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Admin Dashboard</title>
+
+    <!-- Styles -->
+    <link href="css/lib/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/lib/themify-icons.css" rel="stylesheet" />
+    <link href="css/lib/menubar/sidebar.css" rel="stylesheet" />
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+      <div class="nano">
+        <div class="nano-content">
+          <ul>
+            <div class="logo">
+              <a href="index.html">
+                <!-- <img src="images/logo.png" alt="" /> --><span
+                  >Admin Dashboard</span
+                ></a
+              >
+            </div>
+            <li class="label">Main</li>
+            <li>
+              <a href="user.html"><i class="ti-user"></i> User </a>
+            </li>
+            <li>
+              <a href="products.html"><i class="ti-package"></i> Product</a>
+            </li>
+            <li>
+              <a href="profile.html"><i class="ti-map-alt"></i> Tour</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /# sidebar -->
+
+    <div class="content-wrap">
+      <div class="main">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-8 p-r-0 title-margin-right">
+              <div class="page-header">
+                <div class="page-title">
+                  <h1>Hello, <span>Welcome Here</span></h1>
+                </div>
+              </div>
+            </div>
+            <!-- /# column -->
+            <div class="col-lg-4 p-l-0 title-margin-left">
+              <div class="page-header">
+                <div class="page-title">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="index.html">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active">User</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <!-- /# column -->
+          </div>
+          <!-- /# row -->
+          <section id="main-content">
+            <div class="row">
+              <div class="col-lg-12">
+                <button
+                  class="button-add"
+                  onclick="document.getElementById('id01').style.display='block'"
+                >
+                  Add User
+                </button>
+                <div class="card">
+                  <div class="card-title">
+                    <h4>User Manager</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Quality</th>
+                            <th>Booked</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody class="" id="tbody"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /# row -->
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal content -->
+    <div id="id01" class="modal">
+      <span
+        onclick="document.getElementById('id01').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >X</span
+      >
+      <form class="modal-content">
+        <div class="container">
+          <h1>Add User</h1>
+          <p>Please fill in this form to add user.</p>
+          <hr />
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" required />
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
+
+          <label for="phone"><b>SĐT</b></label>
+          <input type="text" placeholder="Enter Phone" name="phone" required />
+
+          <label for="role"><b>Role</b></label>
+          <input type="text" placeholder="Enter Role" name="role" required />
+
+          <div class="clearfix">
+            <button
+              onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="signupbtn"
+              id="signupbtn"
+              onclick="handleSubmit(event)"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal Update content -->
+    <div id="id02" class="modal-update">
+      <span
+        onclick="document.getElementById('id02').style.display='none'"
+        class="close-update"
+        title="Close Modal"
+        >X</span
+      >
+      <form class="modal-content">
+        <div class="container">
+          <h1>Update User</h1>
+          <p>Please fill in this form to update user.</p>
+          <hr />
+          <label for="name-update"><b>Name</b></label>
+          <input name="name-update" id="name-update" type="text" placeholder="Enter Name" required />
+
+          <label for="email-update"><b>Email</b></label>
+          <input name="email-update" id="email-update" type="text" placeholder="Enter Email"required />
+
+          <label for="phone-update"><b>SĐT</b></label>
+          <input name="phone-update" id="phone-update" type="text" placeholder="Enter Phone"required />
+
+          <label for="role-update"><b>Role</b></label>
+          <input name="role-update" id="role-update" type="text" placeholder="Enter Role" required />
+
+          <label for="status"><b>Status</b></label>
+          <select name="status" id="status">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+          <div class="clearfix">
+            <button
+              type="button"
+              onclick="document.getElementById('id02').style.display='none'"
+              class="cancelbtn"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="updatebtn"
+              id="updatebtn"
+              onclick="handleUpdate(event)"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <script src="./js/index.js"></script>
+
+  </body>
+</html>
