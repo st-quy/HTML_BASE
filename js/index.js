@@ -1,5 +1,5 @@
 var isLogin = JSON.parse(localStorage.getItem("isLogin"));
-if (!isLogin && isLogin === false) {
+if (isLogin === null && isLogin === false) {
   location.href = `${location.origin}/login.html`;
 }
 
