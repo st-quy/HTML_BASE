@@ -1,7 +1,15 @@
 var isLogin = JSON.parse(localStorage.getItem("isLogin"));
+var role = localStorage.getItem("role");
+
 if (isLogin === null || isLogin === false) {
   location.href = `${location.origin}/login.html`;
+}else {
+  if (role !== "Admin") {
+    location.href = `${location.origin}/huyen.html`;
+  }
 }
+
+
 
 let tbody = document.getElementById("tbody");
 
@@ -16,6 +24,13 @@ var modal = document.getElementById("id01");
 var modalUpdate = document.getElementById("id02");
 var modalDelete = document.getElementById("id03");
 
+function checkLogin() {
+  if (isLogin === null || isLogin === false) {
+    modal.style.display = "block";
+  } else {
+    alert("Hello Huyen!");
+  }
+}
 var span = document.getElementsByClassName("close")[0];
 
 span.onclick = function () {
@@ -51,6 +66,7 @@ function td_fun({ id, name, email, phone, status, role }) {
   <td>${role}</td>
   <td class="color-primary">${status}</td>
   <td>
+  <span class="color-dark ti-home cursor" onclick="checkLogin()"></span>
     <span class="color-dark ti-pencil-alt cursor" id="updateBtn" onclick="handleGetDetail(${id})"></span>
     <span class="ti-trash color-danger cursor" id="deleteBtn" onclick="handleOpenModalDelete(${id})"></span>
   </td>

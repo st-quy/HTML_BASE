@@ -5,8 +5,13 @@ async function handleSubmit() {
     var userExist = response.data.find((usr) => usr.email === email);
     if (userExist && userExist.password === password) {
       localStorage.setItem("isLogin", true);
+      localStorage.setItem("role", userExist.role);
       setTimeout(() => {
+        if (userExist.role === "Admin") {
         location.href = `${location.origin}/index.html`;
+        } else {
+        location.href = `${location.origin}/huyen.html`;
+        }
       }, 1000);
     }
   });
@@ -51,5 +56,5 @@ async function handleSignup() {
 handleSignup;
 
 async function handleLogout() {
-  localStorage.setItem("isLogin", false);
+  localStorage.clear()
 }

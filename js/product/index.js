@@ -1,6 +1,12 @@
 var isLogin = JSON.parse(localStorage.getItem("isLogin"));
+var role = localStorage.getItem("role");
+
 if (isLogin === null || isLogin === false) {
   location.href = `${location.origin}/login.html`;
+} else {
+  if (role !== "Admin") {
+    location.href = `${location.origin}/huyen.html`;
+  }
 }
 let tbody = document.getElementById("tbody");
 
