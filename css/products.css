@@ -339,7 +339,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Set a style for all buttons */
-#signupbtn,.updatebtn, .deletebtn {
+#addProductbtn,.updatebtn, .deletebtn {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -353,7 +353,7 @@ input[type=text]:focus, input[type=password]:focus {
   }
 }
 
-#signupbtn, .updatebtn, .deletebtn:hover {
+#addProductbtn, .updatebtn, .deletebtn:hover {
   opacity:1;
 }
 
@@ -372,13 +372,13 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, #signupbtn, .updatebtn {
+.cancelbtn, #addProductbtn, .updatebtn {
   float: left;
   width: 50%;
   border: unset !important;
 
 }
-#signupbtn, .updatebtn, .deletebtn {
+#addProductbtn, .updatebtn, .deletebtn {
     float: right;
     width: 50%;
   }
@@ -441,7 +441,7 @@ hr {
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .cancelbtn, #signupbtn {
+  .cancelbtn, #addProductbtn {
     width: 100%;
   }
 }

@@ -114,7 +114,7 @@ async function handleGetDetail(id) {
     });
 }
 
-async function handleSubmit(event) {
+async function handleSubmitProduct(event) {
   event.preventDefault();
   var name = document.querySelector('input[name="name"]').value;
   var description = document.querySelector('input[name="description"]').value;
